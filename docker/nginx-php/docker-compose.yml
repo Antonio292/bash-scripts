@@ -12,3 +12,12 @@ services:
     restart: unless-stopped
     volumes:
       - ./html:/usr/share/nginx/html
+
+  api:
+    image: node:18-alpine
+    working_dir: /app
+    volumes:
+      - ./api:/app
+    command: node server.js
+    ports:
+      - "3000:3000"
